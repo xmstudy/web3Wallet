@@ -1,45 +1,75 @@
 <template>
-  <!-- <div>privateKey:{{ privateKey }}</div>
-  <div>account:{{ account }}</div>
-  <div style="height: 20px; width: 50px; background-color: #bfc" @click="send">
-    转账
-  </div> -->
-  <!-- <BtnBiew></BtnBiew> -->
-  <!-- <div> -->
-  <!-- <WalletCom></WalletCom> -->
-  <!-- </div> -->
-  <div @click="requestAccounts">开始游戏</div>
+  <HelloWorld></HelloWorld>
+  <div></div>
 </template>
 <script setup>
-let isRequesting = false;
 
-function requestAccounts() {
-  if (!isRequesting) {
-    isRequesting = true;
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((accounts) => {
-        isRequesting = false;
-        // 用户已授权，accounts 中包含用户账户地址
-        console.log(accounts);
-      })
-      .catch((error) => {
-        isRequesting = false;
-        // 用户拒绝了授权或发生了错误
-        console.log(error);
-      });
+import HelloWorld from "./components/HelloWorld.vue";
 
-    // 设置一个超时，如果一段时间后仍然没有得到响应，取消请求
-    setTimeout(() => {
-      if (isRequesting) {
-        isRequesting = false;
-        // 取消请求或执行相应的操作
-        console.log("请求超时");
-        alert('你拒绝了 请重启')
-      }
-    }, 10000); // 设置超时时间，单位为毫秒（这里设置为10秒）
-  }
-}
+// let isRequesting = false;
+
+// function requestAccounts () {
+//          window.ethereum.enable().then(res=>{
+//           console.log(res);
+//          });
+
+//   // window.addEventListener("load", async () => {
+//   //   // Modern dapp browsers...
+//   //   if (window.ethereum) {
+//   //     let ethereum = window.ethereum;
+//   //     window.web3 = new Web3(ethereum);
+//   //     try {
+//   //       // Request account access if needed
+//   //       await ethereum.enable();
+//   //       // Acccounts now exposed
+//   //       window.web3.eth.sendTransaction({
+//   //         /* ... */
+//   //       });
+//   //     } catch (error) {
+//   //       // User denied account access...
+//   //     }
+//   //   }
+//   //   // Legacy dapp browsers...
+//   //   else if (window.web3) {
+//   //     window.web3 = new Web3(window.web3.currentProvider);
+//   //     // Acccounts always exposed
+//   //     window.web3.eth.sendTransaction({
+//   //       /* ... */
+//   //     });
+//   //   }
+//   //   // Non-dapp browsers...
+//   //   else {
+//   //     console.log(
+//   //       "Non-Ethereum browser detected. You should consider trying MetaMask!"
+//   //     );
+//   //   }
+//   // });
+//   //   if (!isRequesting) {
+//   //     isRequesting = true;
+//   //     window.ethereum
+//   //       .request({ method: "eth_requestAccounts" })
+//   //       .then((accounts) => {
+//   //         isRequesting = false;
+//   //         // 用户已授权，accounts 中包含用户账户地址
+//   //         console.log(accounts);
+//   //       })
+//   //       .catch((error) => {
+//   //         isRequesting = false;
+//   //         // 用户拒绝了授权或发生了错误
+//   //         console.log(error);
+//   //       });
+
+//   //     // 设置一个超时，如果一段时间后仍然没有得到响应，取消请求
+//   //     setTimeout(() => {
+//   //       if (isRequesting) {
+//   //         isRequesting = false;
+//   //         // 取消请求或执行相应的操作
+//   //         console.log("请求超时");
+//   //         alert('你拒绝了 请重启')
+//   //       }
+//   //     }, 10000); // 设置超时时间，单位为毫秒（这里设置为10秒）
+//   //   }
+// }
 </script>
 <!-- <script setup>
 import BtnBiew from '@/components/Wallet.vue'
