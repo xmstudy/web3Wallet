@@ -1,6 +1,5 @@
 <template>
   <HelloWorld></HelloWorld>
-  <div></div>
 </template>
 <script setup>
 
