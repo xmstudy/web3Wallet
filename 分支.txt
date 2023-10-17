@@ -1,1 +1,4 @@
 分支1
+git push origin 分支名 --force
+3
+远程
